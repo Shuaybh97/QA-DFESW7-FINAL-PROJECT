@@ -1,13 +1,41 @@
 package com.qa.app.data.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
+@Entity
+@Table()
 public class Player {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String forename;
-	private String surname;
-	private String position;
-	private Integer goals;
-	private Integer assists;
+	
+	@NotNull
+	@Column(name = "forename")
+	@Length(min = 1, message = "You must specify a forename")
+	private String a_forename;
+	
+	@NotNull
+	@Column(name = "surname")
+	@Length(min = 1, message = "You must specify a surname")
+	private String b_surname;
+	
+	@Column(name = "position")
+	private String c_position;
+	
+	@Column(name = "goals")
+	private Integer d_goals = 0;
+	
+	@Column(name = "assists")
+	private Integer e_assists = 0;
 	
 	
 	public Player() {
@@ -17,21 +45,21 @@ public class Player {
 	public Player(Long id, String forename, String surname, String position, Integer goals, Integer assists) {
 		super();
 		this.id = id;
-		this.forename = forename;
-		this.surname = surname;
-		this.position = position;
-		this.goals = goals;
-		this.assists = assists;
+		this.a_forename = forename;
+		this.b_surname = surname;
+		this.c_position = position;
+		this.d_goals = goals;
+		this.e_assists = assists;
 	}
 
 
 	public Player(String forename, String surname, String position, Integer goals, Integer assists) {
 		super();
-		this.forename = forename;
-		this.surname = surname;
-		this.position = position;
-		this.goals = goals;
-		this.assists = assists;
+		this.a_forename = forename;
+		this.b_surname = surname;
+		this.c_position = position;
+		this.d_goals = goals;
+		this.e_assists = assists;
 	}
 
 	public Long getId() {
@@ -45,61 +73,60 @@ public class Player {
 
 
 	public String getForename() {
-		return forename;
+		return a_forename;
 	}
 
 
 	public void setForename(String forename) {
-		this.forename = forename;
+		this.a_forename = forename;
 	}
 
 
 	public String getSurname() {
-		return surname;
+		return b_surname;
 	}
 
 
 	public void setSurname(String surname) {
-		this.surname = surname;
+		this.b_surname = surname;
 	}
 
 
 	public String getPosition() {
-		return position;
+		return c_position;
 	}
 
 
 	public void setPosition(String position) {
-		this.position = position;
+		this.c_position = position;
 	}
-
-
-	@Override
-	public String toString() {
-		return "Player [id=" + id + ", forename=" + forename + ", surname=" + surname + ", position=" + position
-				+ ", goals=" + goals + ", assists=" + assists + "]";
-	}
-
-
+	 
 	public Integer getGoals() {
-		return goals;
+		return d_goals;
 	}
 
 
 	public void setGoals(Integer goals) {
-		this.goals = goals;
+		this.d_goals = goals;
 	}
 
 
 	public Integer getAssists() {
-		return assists;
+		return e_assists;
 	}
 
 
 	public void setAssists(Integer assists) {
-		this.assists = assists;
+		this.e_assists = assists;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Player [id=" + id + ", forename=" + a_forename + ", surname=" + b_surname + ", position=" + c_position
+				+ ", goals=" + d_goals + ", assists=" + e_assists + "]";
+	}
+
+
 	
 	
 	
