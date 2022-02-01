@@ -86,11 +86,17 @@ public class PlayerService {
 			
 			throw new EntityNotFoundException("Player with id " + id + " not found");
 		}
-		
-	
-		
+			
 	}
 
+	
+	public List<Player> getByPosition(String position) {
+		
+		
+		return playerRepository.findByPosition(position);
+		
+	}
+	
 	
 	
 	
