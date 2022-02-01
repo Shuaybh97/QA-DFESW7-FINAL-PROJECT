@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "Players")
+@Table(name = "Player")
 public class Player {
 	
 	@Id

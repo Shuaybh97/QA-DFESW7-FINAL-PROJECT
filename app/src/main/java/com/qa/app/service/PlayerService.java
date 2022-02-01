@@ -2,6 +2,9 @@ package com.qa.app.service;
 
 import java.util.List;
 
+
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +34,16 @@ public class PlayerService {
 	}
 	
 	public Player getById(Long id) {
-		return null;
+		
+		if (playerRepository.existsById(id)) {
+			
+			return playerRepository.findById(id).get();
+		}
+		
+		else {
+			
+			throw new EntityNotFoundException("Player with id " + id + " not found");
+		}
 		
 	}
 	
@@ -45,23 +57,37 @@ public class PlayerService {
 	
 	public Player updatePlayer(Long id, Player player) {
 		
-		Player savedPlayer = playerRepository.getById(id);
-		savedPlayer.setForename(player.getForename());
-		savedPlayer.setSurname(player.getSurname());
-		savedPlayer.setPosition(player.getPosition());
-		savedPlayer.setGoals(player.getGoals());
-		savedPlayer.setAssists(player.getAssists());
+		if (playerRepository.existsById(id)){
+			
+			Player savedPlayer = playerRepository.getById(id);
+			savedPlayer.setForename(player.getForename());
+			savedPlayer.setSurname(player.getSurname());
+			savedPlayer.setPosition(player.getPosition());
+			savedPlayer.setGoals(player.getGoals());
+			savedPlayer.setAssists(player.getAssists());
+			
+			return playerRepository.save(savedPlayer);
+		}
 		
-		return playerRepository.save(savedPlayer);
-		
+		else {
+			
+			throw new EntityNotFoundException("Player with id " + id + " not found");
+		}
 		
 	}
 	
 	
 	public void deletePlayer(Long id) {
 		
-		playerRepository.deleteById(id);
+		if (playerRepository.existsById(id)) {
+			playerRepository.deleteById(id);
+			
+		} else {
+			
+			throw new EntityNotFoundException("Player with id " + id + " not found");
+		}
 		
+	
 		
 	}
 
