@@ -23,10 +23,6 @@ public class PlayerService {
 		this.playerRepository = playerRepository;
 	}
 
-	
-
-//	List<Player> test = List.of(new Player(1L, "Shuaib", "Hussein", "Midfielder", 0, 0),
-//			   new Player(2L, "Abdi", "Hussein", "Attacker", 0, 0));
 
 
 	public List<Player> getPlayers() {
@@ -40,23 +36,37 @@ public class PlayerService {
 	}
 	
 	
-	public Player create(Player player) {
+	public Player addPlayer(Player player) {
 		
-		return null;
+		Player savedPlayer = playerRepository.save(player);
+		return savedPlayer;
 		
 	}
 	
-	public Player update(Long id, Player player) {
+	public Player updatePlayer(Long id, Player player) {
 		
-		return null;
+		Player savedPlayer = playerRepository.getById(id);
+		savedPlayer.setForename(player.getForename());
+		savedPlayer.setSurname(player.getSurname());
+		savedPlayer.setPosition(player.getPosition());
+		savedPlayer.setGoals(player.getGoals());
+		savedPlayer.setAssists(player.getAssists());
+		
+		return playerRepository.save(savedPlayer);
+		
+		
 	}
 	
 	
-	public void delete(long id) {
+	public void deletePlayer(Long id) {
+		
+		playerRepository.deleteById(id);
+		
 		
 	}
 
-
+	
+	
 	
 	
 	
