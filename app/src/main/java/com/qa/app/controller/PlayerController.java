@@ -1,6 +1,7 @@
 package com.qa.app.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -51,11 +52,11 @@ public class PlayerController {
 	
 	@RequestMapping(path = "/{id}", method = { RequestMethod.GET })
 	//@GetMapping(path = "/{id}")
-	public ResponseEntity<Player> getById(@PathVariable("id") Long id) {
+	public ResponseEntity<Optional<Player>> getById(@PathVariable("id") Long id) {
 		
-		Player savedPlayer = playerService.getById(id);
+		Optional<Player> savedPlayer = playerService.getById(id);
 		
-		ResponseEntity<Player> response = ResponseEntity.status(HttpStatus.OK)
+		ResponseEntity<Optional<Player>> response = ResponseEntity.status(HttpStatus.OK)
 				  .body(savedPlayer);
 		
 		return response;

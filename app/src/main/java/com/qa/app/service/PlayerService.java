@@ -1,7 +1,7 @@
 package com.qa.app.service;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.qa.app.data.entity.Player;
 import com.qa.app.data.repository.PlayerRepository;
+import com.qa.app.exceptions.PlayerNotFoundException;
+
 
 
 @Service
@@ -33,17 +35,18 @@ public class PlayerService {
 		return playerRepository.findAll();
 	}
 	
-	public Player getById(Long id) {
+	public Optional<Player> getById(Long id) {
 		
 		if (playerRepository.existsById(id)) {
 			
-			return playerRepository.findById(id).get();
+			return playerRepository.findById(id);
 		}
 		
 		else {
 			
-			throw new EntityNotFoundException("Player with id " + id + " not found");
+			throw new PlayerNotFoundException("Player with id " + id + " not found");
 		}
+		
 		
 	}
 	
@@ -71,7 +74,7 @@ public class PlayerService {
 		
 		else {
 			
-			throw new EntityNotFoundException("Player with id " + id + " not found");
+			throw new PlayerNotFoundException("Player with id " + id + " not found");
 		}
 		
 	}
@@ -84,7 +87,7 @@ public class PlayerService {
 			
 		} else {
 			
-			throw new EntityNotFoundException("Player with id " + id + " not found");
+			throw new PlayerNotFoundException("Player with id " + id + " not found");
 		}
 			
 	}
