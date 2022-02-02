@@ -42,24 +42,42 @@ public class Player {
 	public Player() {
 		super();
 	}
+	
 
-	public Player(Long id, String forename, String surname, String position) {
+	public Player(Long id, @NotNull @Length(min = 1, message = "You must specify a forename") String forename,
+			@NotNull @Length(min = 1, message = "You must specify a surname") String surname, String position,
+			Integer goals, Integer assists) {
 		super();
 		this.id = id;
 		this.forename = forename;
 		this.surname = surname;
 		this.position = position;
-		
+		this.goals = goals;
+		this.assists = assists;
 	}
 
 
-	public Player(String forename, String surname, String position) {
+
+	public Player(Long id, @NotNull @Length(min = 1, message = "You must specify a forename") String forename,
+			@NotNull @Length(min = 1, message = "You must specify a surname") String surname, String position) {
+		super();
+		this.id = id;
+		this.forename = forename;
+		this.surname = surname;
+		this.position = position;
+	}
+	
+	
+
+
+	public Player(@NotNull @Length(min = 1, message = "You must specify a forename") String forename,
+			@NotNull @Length(min = 1, message = "You must specify a surname") String surname, String position) {
 		super();
 		this.forename = forename;
 		this.surname = surname;
 		this.position = position;
-		
 	}
+
 
 	public Long getId() {
 		return id;

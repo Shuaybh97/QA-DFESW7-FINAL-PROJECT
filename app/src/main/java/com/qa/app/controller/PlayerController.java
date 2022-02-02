@@ -109,7 +109,7 @@ public class PlayerController {
 	// get by position
 	
 	@RequestMapping(path = "/positions/{position}", method = { RequestMethod.GET })
-	public ResponseEntity<List<Player>> getById(@PathVariable("position") String position) {
+	public ResponseEntity<List<Player>> getByPosition(@PathVariable("position") String position) {
 		 
 		ResponseEntity<List<Player>> players = ResponseEntity.ok(playerService.getByPosition(position));
 		return players;
