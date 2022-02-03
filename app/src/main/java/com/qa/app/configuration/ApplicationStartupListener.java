@@ -12,7 +12,7 @@ import com.qa.app.data.entity.Player;
 import com.qa.app.data.repository.PlayerRepository;
 
 
-
+@Profile("dev")
 @Configuration
 public class ApplicationStartupListener implements ApplicationListener<ApplicationReadyEvent> {
 

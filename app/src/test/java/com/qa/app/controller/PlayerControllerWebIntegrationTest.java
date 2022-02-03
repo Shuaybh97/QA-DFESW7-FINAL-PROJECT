@@ -1,7 +1,6 @@
 package com.qa.app.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -37,8 +36,6 @@ public class PlayerControllerWebIntegrationTest {
 	private List<Player> midfielders; 
 	private Player playerToCreate; 
 	private Player validPlayer;
-	private ResponseEntity<Optional<Player>> optionalValidPlayer;
-	
 	@BeforeEach // junit5 (jupiter) annotation to run this method before every test
 	public void init() {
 		players = new ArrayList<>();
@@ -84,7 +81,7 @@ public class PlayerControllerWebIntegrationTest {
 		
 		// then
 		ResponseEntity<Player> actual = controller.addPlayer(playerToCreate);
-		assertEquals(expected, actual); // junit assertion
+		assertThat(expected).isEqualTo(actual); // junit assertion
 		
 		verify(playerService).addPlayer(playerToCreate);
 	}
@@ -101,7 +98,7 @@ public class PlayerControllerWebIntegrationTest {
 		
 		// then
 		ResponseEntity<Optional<Player>> actual = controller.getById(1L);
-		assertEquals(expected, actual);
+		assertThat(expected).isEqualTo(actual);
 		
 		verify(playerService, times(1)).getById(1L);
 	}
@@ -122,7 +119,7 @@ public class PlayerControllerWebIntegrationTest {
 		ResponseEntity<Player> actual = controller.updatePlayer(playerId, updatedPlayer);
 		
 		// then
-		assertEquals(expected, actual);
+		assertThat(expected).isEqualTo(actual);
 		verify(playerService).updatePlayer(playerId, updatedPlayer);
 	}
 	
@@ -134,7 +131,7 @@ public class PlayerControllerWebIntegrationTest {
 		ResponseEntity<?> actual = controller.deletePlayer(PlayerId);
 		
 		//then
-		assertEquals(expected, actual);
+		assertThat(expected).isEqualTo(actual);
 		verify(playerService).deletePlayer(PlayerId);
 	}
 	
@@ -153,7 +150,7 @@ public class PlayerControllerWebIntegrationTest {
 		
 		// then
 		
-		assertEquals(expected, actual);
+		assertThat(expected).isEqualTo(actual);
 		verify(playerService).getByPosition(position);
 		
 		
