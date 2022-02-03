@@ -19,9 +19,82 @@
 ## Project objectives:
 - To create a Spring Boot API, with utilisation of supporting tools, methodologies, and technologies, that encapsulates all fundamental and practical modules covered during training.
 
-<!-- ##	How I expected the challenge to go.
+
+## Project requirements (Prioritisation using MoSCoW)
+
+
+##	How I expected the challenge to go.
+
+- I was confident in implementing the main concepts and deliverables required as part of the MVP. I anticipated some problems when it came to testing phase, however that process went smoothly.
 
 ## What went well? / What didn't go as planned?
 
-## Possible improvements for future revisions of the project. -->
+Things that went well:
+- Completed the deliverables checklist for the MVP
+- Met > 50% of the stretch goals
+
+Things that could have gone better:
+- Implementing the rest of the stretch goals
+
+
+## Possible improvements for future revisions of the project.
+
+- Creating a Docker image of the application and deploying it to the cloud
+- Hosting the database using a cloud provider
+- Building a CI pipeline
+- Creating a frond end for the application
+- Creating a second table with a relationship
+
+
+## Screenshots showing the postman requests and the output from the API.
+
+### Create
+
+![](images/CRUD-create.png)
+
+### Read
+
+#### Read all players:
+
+![](images/CRUD-readall.png)
+
+#### Read player by player ID:
+
+![](images/CRUD-readID.png)
+
+### Update:
+
+![](images/CRUD-update.png)
+
+### Delete:
+
+#### Before delete request
+
+![](images/CRUD-readall.png)
+
+
+#### Response from delete request:
+![](images/CRUD-delete.png)
+
+
+#### Database after delete request:
+![](images/CRUD-afterdelete.png)
+
+
+
+# Screenshots showing persisted data in database 
+
+![](images/Database.png)
+
+
+# Screenshot of the test results
+
+![](images/testresults.png)
+
+
+
+
+
+
+
 
