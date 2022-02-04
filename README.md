@@ -64,11 +64,15 @@ Things that could have gone better:
 
 ### Update:
 
-![](images/CRUD-update.png)
+#### Before update:
+![](images/CRUD-beforeupdate.png)
+
+#### After update
+![](images/CRUD-afterupdate.png)
 
 ### Delete:
 
-#### Before delete request
+#### Before delete request:
 
 ![](images/CRUD-readall.png)
 
