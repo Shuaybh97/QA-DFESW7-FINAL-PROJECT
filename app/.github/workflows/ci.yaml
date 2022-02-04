@@ -14,4 +14,5 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
+        run: cd app
         run: mvn --batch-mode --update-snapshots verify
