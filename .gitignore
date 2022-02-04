@@ -4,3 +4,4 @@ app/mvnw.cmd.project
 .project
 app/.DS_Store
 app/target
+Bin/
