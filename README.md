@@ -23,6 +23,9 @@
 ## Project requirements (Prioritisation using MoSCoW)
 
 
+
+
+
 ##	How I expected the challenge to go.
 
 - I was confident in implementing the main concepts and deliverables required as part of the MVP. I anticipated some problems when it came to testing phase, however that process went smoothly.
@@ -44,6 +47,15 @@ Things that could have gone better:
 - Building a CI pipeline
 - Creating a frond end for the application
 - Creating a second table with a relationship
+
+
+## Project Management (Jira)
+![](images/Jira.png)
+
+
+## Completed Risk Assessment
+
+![](images/RiskAssessment.png)
 
 
 ## Screenshots showing the postman requests and the output from the API.
