@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -42,15 +40,16 @@ public class PlayerServiceUnitTest {
 	@BeforeEach // junit5 (jupiter) annotation to run this method before every test
 	public void init() {
 		players = new ArrayList<>();
-		players.addAll(List.of(new Player(1L, "shuayb", "h", "midfielder"), 
-							   new Player(2L, "jamal", "A", "attacker"),
-							   new Player(3L, "Mo", "S", "defender")));
+		players.addAll(List.of(new Player(1L, "shuayb", "h", "midfielder", 180, "right"), 
+				   new Player(2L, "jamal", "A", "attacker", 175, "left"),
+				   new Player(3L, "Mo", "S", "defender", 192, "left")));
 		midfielders = new ArrayList<>();
-		midfielders.addAll(List.of(new Player(1L, "shuayb", "h", "midfielder"),
-				                   new Player(2L, "jamal", "A", "attacker")));
+		midfielders.addAll(List.of(new Player(1L, "shuayb", "h", "midfielder", 180, "right"),
+                new Player(2L, "jamal", "A", "midfielder", 175, "left")));
+
 	
-		expectedPlayerWithoutId = new Player("shuayb", "h", "midfielder");
-		expectedPlayerWithId = new Player(1L, "shuayb", "h", "midfielder");
+		expectedPlayerWithoutId = new Player("shuayb", "h", "midfielder", 180, "right");
+		expectedPlayerWithId = new Player(1L, "shuayb", "h", "midfielder", 180, "right");
 	}
 	
 	
@@ -88,7 +87,7 @@ public class PlayerServiceUnitTest {
 	public void updatePlayerTest() {
 		
 		Long id = expectedPlayerWithId.getId();
-		Player updatedPlayer = new Player(1L, "shuayb", "h", "attacker");
+		Player updatedPlayer = new Player(1L, "shuayb", "h", "attacker", 180, "right");
 		
 		when(playerRepository.existsById(id)).thenReturn(true);
 		when(playerRepository.getById(id)).thenReturn(expectedPlayerWithId);
@@ -148,7 +147,7 @@ public class PlayerServiceUnitTest {
 	public void updateInvalidPlayerTest() {
 		
 		long id = 20;
-		Player updatedPlayer = new Player(1L, "shuayb", "h", "attacker");
+		Player updatedPlayer = new Player(1L, "shuayb", "h", "attacker", 180, "right");
 		
 		when(playerRepository.existsById(id)).thenReturn(false);
 		PlayerNotFoundException e = Assertions.assertThrows(PlayerNotFoundException.class, () -> {

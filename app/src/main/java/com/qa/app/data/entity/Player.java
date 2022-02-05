@@ -2,13 +2,16 @@ package com.qa.app.data.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
@@ -33,51 +36,46 @@ public class Player {
 	private String position;
 	
 	@Column
-	private Integer goals = 0;
+	private int height;
 	
+	// right footed or left footed
 	@Column
-	private Integer assists = 0;
+	private String laterality;
+	
+	
+	@OneToOne(mappedBy = "player", fetch = FetchType.LAZY)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	
+	private Stats stats;
 	
 	
 	public Player() {
 		super();
 	}
 	
-
 	public Player(Long id, @NotNull @Length(min = 1, message = "You must specify a forename") String forename,
 			@NotNull @Length(min = 1, message = "You must specify a surname") String surname, String position,
-			Integer goals, Integer assists) {
+			int height, String laterality) {
 		super();
 		this.id = id;
 		this.forename = forename;
 		this.surname = surname;
 		this.position = position;
-		this.goals = goals;
-		this.assists = assists;
+		this.height = height;
+		this.laterality = laterality;
 	}
-
-
-
-	public Player(Long id, @NotNull @Length(min = 1, message = "You must specify a forename") String forename,
-			@NotNull @Length(min = 1, message = "You must specify a surname") String surname, String position) {
-		super();
-		this.id = id;
-		this.forename = forename;
-		this.surname = surname;
-		this.position = position;
-	}
-	
-	
 
 
 	public Player(@NotNull @Length(min = 1, message = "You must specify a forename") String forename,
-			@NotNull @Length(min = 1, message = "You must specify a surname") String surname, String position) {
+			@NotNull @Length(min = 1, message = "You must specify a surname") String surname, String position,
+			int height, String laterality) {
 		super();
 		this.forename = forename;
 		this.surname = surname;
 		this.position = position;
+		this.height = height;
+		this.laterality = laterality;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -117,34 +115,36 @@ public class Player {
 	public void setPosition(String position) {
 		this.position = position;
 	}
-	 
-	public Integer getGoals() {
-		return goals;
+
+
+	public int getHeight() {
+		return height;
 	}
 
 
-	public void setGoals(Integer goals) {
-		this.goals = goals;
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
 
-	public Integer getAssists() {
-		return assists;
+	public String getLaterality() {
+		return laterality;
 	}
 
 
-	public void setAssists(Integer assists) {
-		this.assists = assists;
+	public void setLaterality(String laterality) {
+		this.laterality = laterality;
 	}
+
 
 	@Override
 	public String toString() {
 		return "Player [id=" + id + ", forename=" + forename + ", surname=" + surname + ", position=" + position
-				+ ", goals=" + goals + ", assists=" + assists + "]";
+				+ ", height=" + height + ", laterality=" + laterality + "]";
 	}
-
-
+	 
 	
+
 	
 	
 	
