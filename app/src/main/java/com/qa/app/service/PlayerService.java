@@ -66,8 +66,7 @@ public class PlayerService {
 			savedPlayer.setForename(player.getForename());
 			savedPlayer.setSurname(player.getSurname());
 			savedPlayer.setPosition(player.getPosition());
-			savedPlayer.setGoals(player.getGoals());
-			savedPlayer.setAssists(player.getAssists());
+			
 			
 			return playerRepository.save(savedPlayer);
 		}
