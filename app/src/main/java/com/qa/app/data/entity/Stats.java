@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
@@ -24,9 +27,10 @@ public class Stats {
 	private int gamesWon = 0;
 
 	
+	
 	@OneToOne(targetEntity = Player.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "player_id")
-	@JsonBackReference
+	@JoinColumn(name = "id")
+	
 	
 	private Player player;
 
