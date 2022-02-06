@@ -39,15 +39,15 @@ public class PlayerControllerWebIntegrationTest {
 	@BeforeEach // junit5 (jupiter) annotation to run this method before every test
 	public void init() {
 		players = new ArrayList<>();
-		players.addAll(List.of(new Player(1L, "shuayb", "h", "midfielder"), 
-							   new Player(2L, "jamal", "A", "attacker"),
-							   new Player(3L, "Mo", "S", "defender")));
+		players.addAll(List.of(new Player(1L, "shuayb", "h", "midfielder", 180, "right"), 
+							   new Player(2L, "jamal", "A", "attacker", 175, "left"),
+							   new Player(3L, "Mo", "S", "defender", 192, "left")));
 		midfielders = new ArrayList<>();
-		midfielders.addAll(List.of(new Player(1L, "shuayb", "h", "midfielder"),
-				                   new Player(2L, "jamal", "A", "midfielder")));
+		midfielders.addAll(List.of(new Player(1L, "shuayb", "h", "midfielder", 180, "right"),
+				                   new Player(2L, "jamal", "A", "midfielder", 175, "left")));
 	
-		playerToCreate = new Player("shuayb", "h", "midfielder");
-		validPlayer = new Player(1L, "shuaib", "h", "midfielder");
+		playerToCreate = new Player("shuayb", "h", "midfielder", 180, "right");
+		validPlayer = new Player(1L, "shuaib", "h", "midfielder", 180, "right");
 		
 	}
 	
@@ -107,7 +107,7 @@ public class PlayerControllerWebIntegrationTest {
 	public void updatePlayerTest() {
 		
 		// Given
-		Player updatedPlayer = new Player(1L, "shuayb", "h", "midfielder", 0, 0);
+		Player updatedPlayer = new Player(1L, "shuayb", "h", "midfielder", 180, "right");
 //		Player savedPlayer = new Player(1L, "shuayb", "h", "attacker", 0, 0);
 		Long playerId = updatedPlayer.getId();
 		HttpHeaders headers = new HttpHeaders();
