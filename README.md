@@ -98,9 +98,57 @@ Things that could have gone better:
 
 
 
-# Screenshots showing persisted data in database 
+## Screenshots showing persisted data in database 
+
+
+The app was first connected to a MySQL database running on my local machine so that I could test that the API could successfully persist data on the local database.
+
+>Database table using localhost:3306 server
 
 ![](images/Database.png)
+
+### Connecting the spring boot app to a MySQL database using AWS Relational Database Service (RDS)
+
+After successfully persisting the data to an MySQL instance on localhost, the next step was to provision a database on the cloud. I chose to provision the database on AWS using my free tier account.
+
+#### 1. Configuring the database
+
+##### 1.1 Choosing database type
+![](images/dbconfig1.png)
+
+
+##### 1.1. Generating credentials
+
+![](images/dbconfig2.png)
+
+##### 1.2. Attaching security groups
+
+![](images/dbconfig3.png)
+
+##### 1.3. Inbound rule configuration
+
+![](images/dbconfig4.png)
+
+Public access to the database was enabled and inbound rules was set to allow all HTTP/HTTPS requests to allow my spring boot app to connect to the database.
+
+##### 1.4. Connecting to the database instance
+
+![](images/ConnectingtotheDB.png)
+
+
+##### 1.5 Creating the database playerApp
+
+![](images/creatingplayerApp.png)
+
+
+#### 2. Setting database endpoint 
+
+After successfully connecting to the database instance and creating the database, I was now able to use the database endpoint in the application production properties file in my spring boot app
+
+##### 2.1 Setting the datasource URL as the database endpoint
+
+![](images/appdbconfigure.png)
+
 
 
 # Screenshot of the test results
