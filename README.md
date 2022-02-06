@@ -1,7 +1,9 @@
 # QA-DFESW7-FINAL-PROJECT
 
+## Overview:
+---
 
-## Tools used in the project:
+### Tools used in the project:
 
 - Agile & Project Management (Git, Jira)
 - Databases & Cloud Fundamentals (H2, MySQL)
@@ -12,12 +14,12 @@
 - Docker
 - GitHub Actions
 
-## Project Aims:
+### Project Aims:
 - Gain practical experience in using all the tools learned to create a working product
 - Demonstrate my understanding of the tools learned on the bootcamp
 - Have fun creating an application in a domain of interest
 
-## Project objectives:
+### Project objectives:
 - To create a Spring Boot API, with utilisation of supporting tools, methodologies, and technologies, that encapsulates all fundamental and practical modules covered during training.
 
 
@@ -27,11 +29,11 @@
 
 
 
-##	How I expected the challenge to go.
+###	How I expected the challenge to go.
 
 - I was confident in implementing the main concepts and deliverables required as part of the MVP. I anticipated some problems when it came to testing phase, however that process went smoothly.
 
-## What went well? / What didn't go as planned?
+### What went well? / What didn't go as planned?
 
 Things that went well:
 - Completed the deliverables checklist for the MVP
@@ -41,26 +43,27 @@ Things that could have gone better:
 - Implementing the rest of the stretch goals
 
 
-## Possible improvements for future revisions of the project.
+### Possible improvements for future revisions of the project.
 
 - Building a CI/CD pipeline
 - Creating a frond end for the application
 - Running the Docker container on the cloud
 
 
-## Project Management (Jira)
+### Project Management (Jira)
 ![](images/Jira.png)
 - [Jira Board](https://shuaibh97.atlassian.net/jira/software/projects/QDFP/boards/3)
 
 
-## Completed Risk Assessment
+
+### Completed Risk Assessment
 
 ![](images/RiskAssessment.png)
 
 - [Link to document](Documents/QA-Project_RiskAssessment.pdf)
 
 
-## Setting up the database (localhost/AWS)
+## 1. Setting up the database (localhost/AWS)
 
 
 The app was first connected to a MySQL database running on my local machine so that I could test that the API could successfully persist data on the local database. After confirming that the data was being persisted successfully, I proceeded to provision a MySQL database on AWS to connect the app to a remote database.
@@ -69,111 +72,142 @@ The app was first connected to a MySQL database running on my local machine so t
 
 ![](images/Database.png)
 
-### Connecting the spring boot app to a MySQL database using AWS Relational Database Service (RDS)
+### 1.1. Connecting the spring boot app to a MySQL database using AWS Relational Database Service (RDS)
 
 After successfully persisting the data to an MySQL instance on localhost, the next step was to provision a database on the cloud. I chose to provision the database on AWS using my free tier account.
 
-#### 1. Configuring the database
+#### 1.1.1 Configuring the database
 
-##### 1.1 Choosing database type
+> Choosing database type
+
 ![](images/dbconfig1.png)
 
 
-##### 1.1. Generating credentials
+> Generating credentials
 
 ![](images/dbconfig2.png)
 
-##### 1.2. Attaching security groups
+> Attaching security groups
 
 ![](images/dbconfig3.png)
 
-##### 1.3. Inbound rule configuration
+> Inbound rule configuration
 
 ![](images/dbconfig4.png)
 
 Public access to the database was enabled and inbound rules was set to allow all HTTP/HTTPS requests to allow my spring boot app to connect to the database.
 
-##### 1.4. Connecting to the database instance
+> Connecting to the database instance
 
 ![](images/ConnectingtotheDB.png)
 
 
-##### 1.5 Creating the database playerApp
+> Creating the database playerApp
 
 ![](images/creatingplayerApp.png)
 
 
-#### 2. Connecting app to remote database 
+#### 1.2. Connecting app to remote database 
 
 After successfully connecting to the database instance and creating the database, I was now able to use the database endpoint in the application production properties file in my spring boot app
 
-##### 2.1 Setting the datasource URL as the database endpoint
+##### 1.2.1. Setting the datasource URL as the database endpoint
 
 ![](images/appdbconfigure.png)
 
-##### 2.2 Testing a post request to the remote database
+##### 1.2.2. Testing a post request to the remote database
 
 ![](images/PostingtoAWSDB.png)
 
-##### 2.3 Connecting to database from MySQL workbench
+##### 1.2.3. Connecting to database from MySQL workbench
 
 ![](images/ConnectingToRemoteWB.png)
 
-##### 2.4 Data being persisted on the remote database
+##### 1.2.4. Data being persisted on the remote database
 
 ![](images/PersistedDBonAWS.png)
 
 
-## Screenshots showing the postman requests and the output from the API using remote database
+## 2. Screenshots showing the postman requests and the output from the API using remote database
 
-### Create
+### 2.1. Create
 
 ![](images/CRUD-create.png)
 
-### Read
+### 2.2. Read
 
-#### Read all players:
+#### 2.2.1. Read all players:
 
 ![](images/CRUD-readall.png)
 
-#### Read player by player ID:
+#### 2.2.2. Read player by player ID:
 
 ![](images/CRUD-readID.png)
 
-### Update:
+### 2.3. Update:
 
-#### Before update:
+#### 2.3.1. Before update:
 ![](images/CRUD-beforeupdate.png)
 
-#### After update
+#### 2.3.2. After update
 ![](images/CRUD-afterupdate.png)
 
-### Delete:
+### 2.4. Delete:
 
-#### Before delete request:
+#### 2.4.1. Before delete request:
 
 ![](images/CRUD-readall.png)
 
 
-#### Response from delete request:
+#### 2.4.2. Response from delete request:
 ![](images/CRUD-delete.png)
 
 
-#### Database after delete request:
+#### 2.4.3. Database after delete request:
 ![](images/CRUD-afterdelete.png)
 
 
-## Screenshot of the test results
+## 3. Screenshot of the test results
 
 ![](images/testresults.png)
 
 
 
-## Dockerising the application
+## 4. Dockerising the application
+
+Useful links:
+- [Connecting GitHub actions to Docker](https://docs.docker.com/ci-cd/github-actions/)
+
 
 To extend the project and leverage the benefits of Docker, I decided to package and run the application using a Docker container on localhost. 
 
-- [Dockerfile]()
+Dockerfile:
+
+![](images/Dockerfile.png)
+
+- [Link to the Dockerfile](app/Dockerfile)
+
+
+### 4.1 Building the Docker image
+
+To build and run a container from the Docker image for the application I ran the these commands in the application root directory:
+
+#### 4.1.1. Building the Docker image tagged dockerplayerapp 
+
+``` docker build -t dockerplayerapp .  ```
+
+#### 4.1.2. Checking the Docker image exists locally:
+
+``` docker image ls ```
+
+#### 4.1.3. Running a Docker container from the image and mapping the host port 80 to the container port 80 which the app is running on:
+
+``` docker run --name playerapp1 -p 80:80 -t dockerplayerapp ```
+
+#### 4.1.4. Accessing the application running on port 80 on localhost:
+
+![](images/appOnDocker.png)
+
 
 
 
