@@ -215,10 +215,17 @@ To extend the project I setup a CI workflow using GitHub Actions and DockerHub.
 
 The workflow yaml file can be found [here](.github/workflows/ci.yaml).
 
-Diagram of CI workflow drawn on Draw.io can be found [here](Documents/CI-Pipeline.drawio):
+Diagram of CI workflow drawn on Draw.io:
 
-![](images/CI-Pipeline.png)
+![](images/CI-Pipeline1.png)
 
+Successful build of the workflow:
+
+![](images/SuccessfulWorkflowBuild.png)
+
+Docker image pushed to the DockerHub repositiory:
+
+![](images/DockerHubImage.png)
 
 
 
