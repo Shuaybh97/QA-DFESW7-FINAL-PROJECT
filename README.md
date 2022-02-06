@@ -1,7 +1,5 @@
 # QA-DFESW7-FINAL-PROJECT
 
-## Links:
-- [Jira Board](https://shuaibh97.atlassian.net/jira/software/projects/QDFP/boards/3)
 
 ## Tools used in the project:
 
@@ -10,6 +8,9 @@
 - Programming Fundamentals (Java)
 - API Development (Spring Boot)
 - Automated Testing (JUnit)
+- AWS 
+- Docker
+- GitHub Actions
 
 ## Project Aims:
 - Gain practical experience in using all the tools learned to create a working product
@@ -51,6 +52,7 @@ Things that could have gone better:
 
 ## Project Management (Jira)
 ![](images/Jira.png)
+- [Jira Board](https://shuaibh97.atlassian.net/jira/software/projects/QDFP/boards/3)
 
 
 ## Completed Risk Assessment
@@ -58,50 +60,10 @@ Things that could have gone better:
 ![](images/RiskAssessment.png)
 
 
-## Screenshots showing the postman requests and the output from the API.
-
-### Create
-
-![](images/CRUD-create.png)
-
-### Read
-
-#### Read all players:
-
-![](images/CRUD-readall.png)
-
-#### Read player by player ID:
-
-![](images/CRUD-readID.png)
-
-### Update:
-
-#### Before update:
-![](images/CRUD-beforeupdate.png)
-
-#### After update
-![](images/CRUD-afterupdate.png)
-
-### Delete:
-
-#### Before delete request:
-
-![](images/CRUD-readall.png)
+## Setting up the database (localhost/AWS)
 
 
-#### Response from delete request:
-![](images/CRUD-delete.png)
-
-
-#### Database after delete request:
-![](images/CRUD-afterdelete.png)
-
-
-
-## Screenshots showing persisted data in database 
-
-
-The app was first connected to a MySQL database running on my local machine so that I could test that the API could successfully persist data on the local database.
+The app was first connected to a MySQL database running on my local machine so that I could test that the API could successfully persist data on the local database. After confirming that the data was being persisted successfully, I proceeded to provision a MySQL database on AWS to connect the app to a remote database.
 
 >Database table using localhost:3306 server
 
@@ -157,16 +119,52 @@ After successfully connecting to the database instance and creating the database
 
 ![](images/ConnectingToRemoteWB.png)
 
-##### 2.4 
+##### 2.4 Data being persisted on the remote database
 
 ![](images/PersistedDBonAWS.png)
 
-# Screenshot of the test results
+## Screenshot of the test results
 
 ![](images/testresults.png)
 
 
+## Screenshots showing the postman requests and the output from the API using remote database
 
+### Create
+
+![](images/CRUD-create.png)
+
+### Read
+
+#### Read all players:
+
+![](images/CRUD-readall.png)
+
+#### Read player by player ID:
+
+![](images/CRUD-readID.png)
+
+### Update:
+
+#### Before update:
+![](images/CRUD-beforeupdate.png)
+
+#### After update
+![](images/CRUD-afterupdate.png)
+
+### Delete:
+
+#### Before delete request:
+
+![](images/CRUD-readall.png)
+
+
+#### Response from delete request:
+![](images/CRUD-delete.png)
+
+
+#### Database after delete request:
+![](images/CRUD-afterdelete.png)
 
 
 
