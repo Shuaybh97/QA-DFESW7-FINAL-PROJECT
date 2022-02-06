@@ -209,6 +209,16 @@ To build and run a container from the Docker image for the application I ran the
 ![](images/appOnDocker.png)
 
 
+## 5. CI workflow
+
+To extend the project I setup a CI workflow using GitHub Actions and DockerHub.
+
+The workflow yaml file can be found [here](.github/workflows/ci.yaml).
+
+Diagram of CI workflow drawn on Draw.io can be found [here](Documents/CI-Pipeline.drawio):
+
+![](images/CI-Pipeline.png)
+
 
 
 
