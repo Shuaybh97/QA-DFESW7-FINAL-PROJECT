@@ -1,7 +1,15 @@
 # QA-DFESW7-FINAL-PROJECT
 
+## Contents
+
+- [Overview](#overview)
+- [Database setup](#1-setting-up-the-database-localhostaws)
+- [Postman API requests](#2-screenshots-showing-the-postman-requests-and-the-output-from-the-api-using-remote-database)
+- [Test results](#3-screenshot-of-the-test-results)
+- [Using Docker](#4-dockerising-the-application)
+- [CI pipeline](#5-ci-workflow)
+
 ## Overview:
----
 
 ### Tools used in the project:
 
@@ -23,7 +31,7 @@
 - To create a Spring Boot API, with utilisation of supporting tools, methodologies, and technologies, that encapsulates all fundamental and practical modules covered during training.
 
 
-## Project requirements (Prioritisation using MoSCoW)
+### Project requirements (Prioritisation using MoSCoW)
 
 
 
