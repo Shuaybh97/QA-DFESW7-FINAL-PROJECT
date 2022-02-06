@@ -43,11 +43,9 @@ Things that could have gone better:
 
 ## Possible improvements for future revisions of the project.
 
-- Creating a Docker image of the application and deploying it to the cloud
-- Hosting the database using a cloud provider
-- Building a CI pipeline
+- Building a CI/CD pipeline
 - Creating a frond end for the application
-- Creating a second table with a relationship
+- Running the Docker container on the cloud
 
 
 ## Project Management (Jira)
@@ -58,6 +56,8 @@ Things that could have gone better:
 ## Completed Risk Assessment
 
 ![](images/RiskAssessment.png)
+
+- [Link to document](Documents/QA-Project_RiskAssessment.pdf)
 
 
 ## Setting up the database (localhost/AWS)
@@ -123,10 +123,6 @@ After successfully connecting to the database instance and creating the database
 
 ![](images/PersistedDBonAWS.png)
 
-## Screenshot of the test results
-
-![](images/testresults.png)
-
 
 ## Screenshots showing the postman requests and the output from the API using remote database
 
@@ -166,6 +162,18 @@ After successfully connecting to the database instance and creating the database
 #### Database after delete request:
 ![](images/CRUD-afterdelete.png)
 
+
+## Screenshot of the test results
+
+![](images/testresults.png)
+
+
+
+## Dockerising the application
+
+To extend the project and leverage the benefits of Docker, I decided to package and run the application using a Docker container on localhost. 
+
+- [Dockerfile]()
 
 
 
