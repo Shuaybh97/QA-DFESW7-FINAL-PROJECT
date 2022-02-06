@@ -141,7 +141,7 @@ Public access to the database was enabled and inbound rules was set to allow all
 ![](images/creatingplayerApp.png)
 
 
-#### 2. Setting database endpoint 
+#### 2. Connecting app to remote database 
 
 After successfully connecting to the database instance and creating the database, I was now able to use the database endpoint in the application production properties file in my spring boot app
 
@@ -149,7 +149,17 @@ After successfully connecting to the database instance and creating the database
 
 ![](images/appdbconfigure.png)
 
+##### 2.2 Testing a post request to the remote database
 
+![](images/PostingtoAWSDB.png)
+
+##### 2.3 Connecting to database from MySQL workbench
+
+![](images/ConnectingToRemoteWB.png)
+
+##### 2.4 
+
+![](images/PersistedDBonAWS.png)
 
 # Screenshot of the test results
 
