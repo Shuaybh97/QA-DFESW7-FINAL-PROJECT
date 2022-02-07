@@ -66,6 +66,13 @@ Things that could have gone better:
 - [Link to document](Documents/QA-Project_RiskAssessment.pdf)
 
 
+### Entity Relationship Diagram (ERD)
+
+![](images/ERD.png)
+
+- [Link to document](Documents/ERD.drawio)
+
+
 ## 1. Setting up the database (localhost/AWS)
 
 
