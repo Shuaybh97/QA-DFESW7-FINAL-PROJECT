@@ -31,11 +31,6 @@
 - To create a Spring Boot API, with utilisation of supporting tools, methodologies, and technologies, that encapsulates all fundamental and practical modules covered during training.
 
 
-### Project requirements (Prioritisation using MoSCoW)
-
-
-
-
 
 ###	How I expected the challenge to go.
 
@@ -53,7 +48,7 @@ Things that could have gone better:
 
 ### Possible improvements for future revisions of the project.
 
-- Building a CI/CD pipeline
+- Building a CD pipeline
 - Creating a frond end for the application
 - Running the Docker container on the cloud
 
